@@ -1,0 +1,20 @@
+.square-icon{
+    width: 150px;
+    height: 166.304px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+    border-radius: 15px;
+    border: 3px solid var(--Yellow, #FFBB24);
+    background: var(--Blue_light, #B4D6F6);
+}
+
+.square-icon img {
+    width: 70%;
+    height: 70%;
+}

@@ -1,0 +1,45 @@
+.home{
+    /* position: absolute; */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* border: red solid 2px; */
+}
+
+.home-title{
+    margin-top: 147px;
+    color: var(--Primary, #246BFE);
+    font-family: Preahvihear;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* border: red solid 2px; */
+}
+
+.home-description{
+    margin-top: 51px;
+    width: 707px;
+    height: 139px;
+    flex-shrink: 0;
+    
+    color: var(--Yellow, #FFBB24);
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
+    
+    /* border: red solid 2px; */
+}
+
+.home-button{
+    margin-top: 51px;
+    display: flex;
+    gap: 189px;
+    /* border: red solid 2px; */
+}

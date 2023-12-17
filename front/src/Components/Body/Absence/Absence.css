@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.absence{
+    
+}
+
+.absence-title{
+    margin-top: 40px;
+    position: relative;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap : 20px;
+
+    border: 2px solid red;
+}
+
+.absence-title-text{
+    color: var(--Blue_dark, #3062C8);
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.absence-content{
+    width: 80%;
+    height: 617px;
+    flex-shrink: 0;
+
+    margin-left: 10%;
+    border-radius: 15px;
+    border: 4px solid var(--Yellow, #FFBB24);
+    background: var(--White, #FAFAFA);
+}

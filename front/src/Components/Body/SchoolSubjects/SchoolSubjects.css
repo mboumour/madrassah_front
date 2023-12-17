@@ -1,0 +1,14 @@
+.school-subjects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.school-subjects-components{
+    gap : 25px;
+    display: flex;
+    text-align: center;
+
+    border : 2px red solid;
+
+}

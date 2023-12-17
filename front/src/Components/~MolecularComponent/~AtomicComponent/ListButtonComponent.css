@@ -1,0 +1,20 @@
+.list-button-component{
+    width: 249px;
+    height: 45px;
+    flex-shrink: 0;
+
+    gap : 19px;
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+
+    border-radius: 15px;
+    background: var(--White, #FAFAFA);
+
+    transition: transform 0.3s ease;
+}
+
+.list-button-component:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}

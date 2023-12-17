@@ -1,0 +1,38 @@
+.home-component{
+    width: 584px;
+    height: 272px;
+    flex-shrink: 0;
+    gap: 26px;
+
+    /* margin-top: 20px; */
+    padding-left: 64px;    
+
+    display: flex;
+    align-items: center;
+
+
+    border-radius: 50px;
+    border: 5px solid var(--Blue_dark, #3062C8);
+    background: #FBE9C1;
+
+    transition: transform 0.3s ease;
+
+}
+
+.home-component:hover{
+    /* background-color: #2980b9; */
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.home-component-text{
+    color: #262626;
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
