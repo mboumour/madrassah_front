@@ -11,7 +11,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Navigate to="/home" replace/>} />
+        {/* <Route path='/' element={<Navigate to="/home" replace/>} /> */}
+        <Route path='/' element={<Home/>} />
         <Route path='/home' element={<Home/>} />
         <Route path='/connexion' element={"TODO"} />
         <Route path='/home-prof' element={<HomeProf/>} />
