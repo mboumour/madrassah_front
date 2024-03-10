@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SquareIcon from '../../~MolecularComponent/~AtomicComponent/SquareIcon'
 import Header from '../HomeProf/~MolecularComponent/Header'
 import './Absence.css'
+import ListStudentComponent from './~MolecularComponent/ListStudentComponent'
 
 const Absence = () => {
 
@@ -23,9 +24,9 @@ const Absence = () => {
       </div>
       
       <div className='absence-content'>
-        <div className='absence-content-list'>
-
-        </div>
+        {/* <div className='absence-content-list'> */}
+          <ListStudentComponent />
+        {/* </div> */}
       </div>
     </div>
   )

@@ -13,24 +13,40 @@ export default class Scheduler extends Component {
         }
 
         const onDataUpdated = this.props.onDataUpdated;
+        const onEventClicked = this.props.onEventClicked; // Supposons que vous passiez une nouvelle prop pour gérer le clic sur un événement
+
 
         scheduler.attachEvent('onEventAdded', (id, ev) => {
             if (onDataUpdated) {
                 onDataUpdated('create', ev, id);
+                console.log(1);
             }
         });
-
+        
         scheduler.attachEvent('onEventChanged', (id, ev) => {
             if (onDataUpdated) {
                 onDataUpdated('update', ev, id);
+                console.log(2);
             }
         });
-
+        
         scheduler.attachEvent('onEventDeleted', (id, ev) => {
             if (onDataUpdated) {
                 onDataUpdated('delete', ev, id);
+                console.log(3);
             }
         });
+
+        // Gestionnaire pour la clique sur un événement
+        scheduler.attachEvent('onClick', (id, e) => {
+            // Appeler la fonction fournie via props avec l'ID de l'événement
+            // console.log("test0");
+            if (onEventClicked) {
+                onEventClicked(id);
+            }
+            return true; // Renvoie true pour permettre d'autres traitements
+        });
+
         scheduler._$initialized = true;
     }
 

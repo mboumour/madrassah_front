@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import Scheduler from './~MolecularComponent/Scheduler';
 import Header from './~MolecularComponent/Header';
 
@@ -8,6 +9,8 @@ const data = [
 ];
 
 const HomeProf = () => {
+
+    const navigate = useNavigate();
     const [currentTimeFormatState, setCurrentTimeFormatState] = useState(true);
     const [messages, setMessages] = useState([]);
 
@@ -15,6 +18,11 @@ const HomeProf = () => {
         const text = ev && ev.text ? ` (${ev.text})` : '';
         const message = `event ${action}: ${id} ${text}`;
         setMessages(prevMessages => [message, ...prevMessages.slice(0, 4)]);
+    };
+
+    const onEventClicked = (id) => {
+        navigate('/absence');
+        console.log(id);
     };
 
     return (
@@ -25,6 +33,7 @@ const HomeProf = () => {
                     events={data}
                     timeFormatState={currentTimeFormatState}
                     onDataUpdated={logDataUpdate}
+                    onEventClicked={onEventClicked}
                 />
             </div>
         </div>

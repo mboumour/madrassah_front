@@ -1,0 +1,12 @@
+.list-student-component{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 40px;
+
+    gap: 15px;
+
+    border-radius: 20px;
+    border: 2px solid #3062C8;
+
+}
