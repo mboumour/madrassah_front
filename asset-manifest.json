@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/madrassah_front/static/css/main.5dd83f0c.css",
-    "main.js": "/madrassah_front/static/js/main.9451932f.js",
+    "main.js": "/madrassah_front/static/js/main.1c011425.js",
     "static/media/logo.svg": "/madrassah_front/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/madrassah_front/index.html",
     "main.5dd83f0c.css.map": "/madrassah_front/static/css/main.5dd83f0c.css.map",
-    "main.9451932f.js.map": "/madrassah_front/static/js/main.9451932f.js.map"
+    "main.1c011425.js.map": "/madrassah_front/static/js/main.1c011425.js.map"
   },
   "entrypoints": [
     "static/css/main.5dd83f0c.css",
-    "static/js/main.9451932f.js"
+    "static/js/main.1c011425.js"
   ]
 }
