@@ -26,6 +26,9 @@ const Header = () => {
     const handleSchoolSubjectsClick = () => {
         navigate('/school-subjects');
     };
+    const handleAddStudentClick = () => {
+        navigate('/add-student');
+    };
     //TMP
     const handleProfClick = () => {
         navigate('/notes');
@@ -47,7 +50,7 @@ const Header = () => {
             </div>
             {plusIsOn &&
                 <div style={{position:'absolute', right:'100px', top:'100px'}}>
-                    <ListButton texts={texts} urls_imgs={urls_imgs} onComponentsClicks={[()=>{},()=>{},handleSchoolSubjectsClick]}/>
+                    <ListButton texts={texts} urls_imgs={urls_imgs} onComponentsClicks={[handleAddStudentClick,()=>{},handleSchoolSubjectsClick]}/>
                 </div>
             }
         </div>
