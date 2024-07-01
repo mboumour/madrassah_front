@@ -1,52 +1,100 @@
-.add-student {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .add-student h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .add-student form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .add-student form div {
-    margin-bottom: 15px;
-  }
-  
-  .add-student form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .add-student form input[type="text"],
-  .add-student form input[type="date"],
-  .add-student form select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .add-student form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .add-student form button:hover {
-    background-color: #0056b3;
-  }
-  
+.add-student-container {
+  background: linear-gradient(to left, #1c2331, #585f94); /* Dégradé de bleu à gris */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Largeur ajustée */
+  max-width: 1000px; /* Largeur maximale */
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Division en deux colonnes égales */
+  grid-column-gap: 20px; /* Espacement entre les colonnes */
+  align-items: center; /* Centrage vertical */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-student-content {
+  padding: 20px;
+}
+
+.add-student-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.add-student-form {
+  width: 100%; /* Utilisation de toute la largeur disponible */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+input[type="text"],input[type="date"] ,select{
+  padding: 2%;
+font-size: 16px;
+}
+
+.label-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label-input-group label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color:#ccc;
+}
+
+#nom{
+  display: flex;
+}
+
+#noms{
+  flex-direction: column;
+  width: 80%;
+}
+
+#nomss{
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.input-group {
+  display: flex;
+  align-items: center; /* Alignement vertical des éléments */
+}
+
+.input-group input,
+.input-group select {
+  flex: 1; /* Le champ d'entrée occupe tout l'espace disponible */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px; /* Taille de police ajustée */
+  box-sizing: border-box;
+  margin-top: 5px; /* Espacement entre les champs */
+}
+
+.input-group > *:first-child {
+  margin-right: 10px; /* Espacement entre les éléments du groupe */
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; /* Taille de police ajustée */
+  transition: background-color 0.3s ease;
+  margin: 5% 0 5% 0; /* Espacement du bouton par rapport aux champs */
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
