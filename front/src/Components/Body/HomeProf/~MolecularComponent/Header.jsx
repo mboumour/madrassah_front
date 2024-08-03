@@ -8,8 +8,8 @@ const Header = () => {
     
     const navigate = useNavigate();
     const [plusIsOn, setPlusIsOn] = useState(false)
-    const urls_imgs = ['../img/Etudiant.svg', '../img/Enseignant.svg', '../img/Matière.svg'] 
-    const texts = ['Ajouter un élève', 'Ajouter un enseignant', 'Ajouter une matière']
+    const urls_imgs = ['../img/Etudiant.svg', '../img/Enseignant.svg', '../img/Matière.svg', '../img/Etudiant.svg', '../img/Etudiant.svg'] 
+    const texts = ['Ajouter un élève', 'Ajouter un enseignant', 'Ajouter une matière', 'Créer un groupe', 'Créer une séance']
     
     const handlePlusClick = () =>{
         setPlusIsOn(!plusIsOn);
@@ -29,9 +29,8 @@ const Header = () => {
     const handleAddStudentClick = () => {
         navigate('/add-student');
     };
-    //TMP
-    const handleProfClick = () => {
-        navigate('/notes');
+    const handleCreateGroupClick = () => {
+        navigate('/create-group');
     };
 
     return (
@@ -50,7 +49,7 @@ const Header = () => {
             </div>
             {plusIsOn &&
                 <div style={{position:'absolute', right:'100px', top:'100px'}}>
-                    <ListButton texts={texts} urls_imgs={urls_imgs} onComponentsClicks={[handleAddStudentClick,()=>{},handleSchoolSubjectsClick]}/>
+                    <ListButton texts={texts} urls_imgs={urls_imgs} onComponentsClicks={[handleAddStudentClick, ()=>{}, handleSchoolSubjectsClick, handleCreateGroupClick, ()=>{}]}/>
                 </div>
             }
         </div>

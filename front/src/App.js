@@ -11,6 +11,7 @@ import HomeManager from './Components/Body/HomeManager/HomeManager';
 import AddGroup from './Components/Body/AddGroup/AddGroup';
 import AddSession from './Components/Body/AddSession/AddSession';
 import Classe from './Components/Body/HomeManager/~MolecularComponent/~AtomicComponent/Classe';
+import CreateGroup from './Components/Body/HomeManager/~MolecularComponent/CreateGroup';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/notes' element={<Notes />} />
         <Route path='/school-subjects' element={<SchoolSubjects />} />
         <Route path='/add-student' element={<AddStudent />} />
+        <Route path='/create-group' element={<CreateGroup/>} />
         <Route path='/classe' element={<Classe />} />
         <Route path="/add-group" element={<AddGroup />} />
         <Route path="/add-session" element={<AddSession />} />

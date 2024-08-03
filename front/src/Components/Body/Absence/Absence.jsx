@@ -8,9 +8,9 @@ const Absence = () => {
 
   const [studentsList, setStudentsList ] = useState([
     {id:258, firstName:"Mouad", lastName:"BOUMOUR"},
-    {id:782, firstName:"Mouad", lastName:"BOUMOUR"},
-    {id:298, firstName:"Mouad", lastName:"BOUMOUR"},
-    {id:915, firstName:"Mouad", lastName:"BOUMOUR"},
+    {id:782, firstName:"Nizar", lastName:"ELMAGHROUDI"},
+    {id:298, firstName:"Yahya", lastName:"MAGHRAOUI"},
+    {id:915, firstName:"Amine", lastName:"SAIF"},
   ])
 
   return (
@@ -25,7 +25,8 @@ const Absence = () => {
       
       <div className='absence-content'>
         {/* <div className='absence-content-list'> */}
-          <ListStudentComponent />
+        <ListStudentComponent studentsList={studentsList}/>
+
         {/* </div> */}
       </div>
     </div>
