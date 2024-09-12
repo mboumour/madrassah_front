@@ -7,7 +7,7 @@ const SchoolSubjects = () => {
   return (
     <div className='school-subjects'>
         <Header/>
-        <div>Les matiéres</div>
+        <div><h2>Les matiéres</h2></div>
         <div className='school-subjects-components'>
             <SquareIcon url_img={'../img/Islamique.png'} style={{background : '#E9F3FC'}}/>
             <SquareIcon url_img={'../img/Arabe.png'} style={{background : '#E9F3FC'}}/>

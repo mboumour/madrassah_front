@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddSession.css'; // Assurez-vous d'avoir importé le fichier CSS correctement
 
 const AddSession = () => {
-  const [timeSlot, setTimeSlot] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
   const [dayOfWeek, setDayOfWeek] = useState('');
   const [subject, setSubject] = useState('');
   const [teacher, setTeacher] = useState('');
   const [group, setGroup] = useState('');
-
-  const timeSlotOptions = [
-    { value: '8-10', label: '8h - 10h' },
-    { value: '10-12', label: '10h - 12h' },
-    { value: '14-16', label: '14h - 16h' },
-    { value: '16-18', label: '16h - 18h' },
-  ];
 
   const dayOfWeekOptions = [
     { value: 'lundi', label: 'Lundi' },
@@ -32,55 +27,99 @@ const AddSession = () => {
     { value: 'Tajwid', label: 'Tajwid' },
   ];
 
-  const teacherOptions = [
-    { id: '1', name: 'Ahmed Kinani' },
-    { id: '2', name: 'Hassan Foulan' },
-    { id: '3', name: 'Kamal Ridalo' },
-    { id: '4', name: 'Jaafar Rgwani' },
-  ];
-
-  const groupOptions = [
-    { id: '1', number: 'Groupe 1' },
-    { id: '2', number: 'Groupe 2' },
-    { id: '3', number: 'Groupe 3' },
-    { id: '4', number: 'Groupe 4' },
-  ];
+  const [teacherOptions, setTeacherOption]= useState([]);
+  const [groupOptions, setGroupOptions] = useState([]);
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Time Slot:', timeSlot);
-    console.log('Day of Week:', dayOfWeek);
-    console.log('Subject:', subject);
-    console.log('Teacher:', teacher);
-    console.log('Group:', group);
-    // Ajouter le code pour envoyer les données au serveur ou autre action nécessaire
-    // Réinitialiser les états après soumission si nécessaire
-    alert('Form submitted successfully!');
-    navigate('/home-prof');
+    const url = 'http://localhost:3000/session/add';
+    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1hZHJhc3NhaC5uZXQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MjE0NzE2ODQsImV4cCI6NDg3NzIzMTY4NH0.RcUmqY2RxBEHAFA3_k0i5NzIZSIp2voIoYduUY2VhX0';
+    const form = { Day : dayOfWeek,
+                   Start_Time : startTime,
+                   End_Time : endTime,
+                   Cours : subject,
+                   Professor : teacher,
+                   Class : group
+                };
+
+    console.log(form);    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token,
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de l\'envoi des données');
+      }
+
+      const data = await response.json();
+      console.log('Réponse du serveur:', data);
+    } catch (error) {
+      console.error('Erreur:', error);
+    }
   };
+
+  useEffect(() => {
+    const fetchProfs = async () => {
+      const url = 'http://localhost:3000/professors/all';
+      const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1hZHJhc3NhaC5uZXQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MjE0NzE2ODQsImV4cCI6NDg3NzIzMTY4NH0.RcUmqY2RxBEHAFA3_k0i5NzIZSIp2voIoYduUY2VhX0';
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error('Erreur lors de l\'envoi des données');
+        }
+        const data = await response.json();
+        setTeacherOption(data);
+      } catch (error) {
+        console.error('Erreur:', error);
+      } 
+    };
+
+    const fetchgroups = async () => {
+      const url = 'http://localhost:3000/classroom/all';
+      const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1hZHJhc3NhaC5uZXQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MjE0NzE2ODQsImV4cCI6NDg3NzIzMTY4NH0.RcUmqY2RxBEHAFA3_k0i5NzIZSIp2voIoYduUY2VhX0';
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error('Erreur lors de l\'envoi des données');
+        }
+        const data = await response.json();
+        setGroupOptions(data.classrooms);
+      } catch (error) {
+        console.error('Erreur:', error);
+      } 
+    };
+
+    fetchProfs();
+    fetchgroups();
+  }, []); // Le tableau vide [] signifie que cet effet s'exécute une seule fois après le montage
 
   return (
     <div className="create-session-form-container">
       <div className="form-wrapper">
         <h2>Créer une nouvelle séance</h2>
         <form onSubmit={handleSubmit} className="create-session-form">
-          <div className="form-group">
-            <label>Créneau horaire :</label>
-            <select
-              value={timeSlot}
-              onChange={(e) => setTimeSlot(e.target.value)}
-              required
-            >
-              <option value="">Sélectionner un créneau horaire</option>
-              {timeSlotOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
           <div className="form-group">
             <label>Jour de la semaine :</label>
             <select
@@ -95,6 +134,24 @@ const AddSession = () => {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="form-group">
+            <label>Date de début :</label>
+            <input
+              type="time"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Date de fin :</label>
+            <input
+              type="time"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+              required
+            />
           </div>
           <div className="form-group">
             <label>Matière :</label>
@@ -116,11 +173,11 @@ const AddSession = () => {
             <div className="teacher-list">
               {teacherOptions.map((teacherOption) => (
                 <div
-                  key={teacherOption.id}
-                  className={`teacher-circle ${teacher === teacherOption.id ? 'selected' : ''}`}
-                  onClick={() => setTeacher(teacherOption.id)}
+                  key={teacherOption._id}
+                  className={`teacher-circle ${teacher === teacherOption._id ? 'selected' : ''}`}
+                  onClick={() => setTeacher(teacherOption._id)}
                 >
-                  {teacherOption.name}
+                  {teacherOption.firstName} {teacherOption.lastName}
                 </div>
               ))}
             </div>
@@ -134,8 +191,8 @@ const AddSession = () => {
             >
               <option value="">Sélectionner un groupe</option>
               {groupOptions.map((option) => (
-                <option key={option.id} value={option.id}>
-                  {option.number}
+                <option key={option._id} value={option._id}>
+                  {option.Name}
                 </option>
               ))}
             </select>

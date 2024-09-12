@@ -1,3 +1,24 @@
+<!-- /addProf  -->
+- Matiéres : []
+
+
+
+Rq:
+- garder la m^me type de nommation : firstName vs FirstName ..
+- Ajouter la possibilité d'ajouter plusieurs étudiants dans un seul coup : Autre que POST /students/add
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

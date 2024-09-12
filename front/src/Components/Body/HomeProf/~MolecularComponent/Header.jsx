@@ -29,8 +29,14 @@ const Header = () => {
     const handleAddStudentClick = () => {
         navigate('/add-student');
     };
+    const handleAddProfClick = () => {
+        navigate('/add-prof');
+    };
     const handleCreateGroupClick = () => {
         navigate('/create-group');
+    };
+    const handleCreateSessionClick = () => {
+        navigate('/create-session');
     };
 
     return (
@@ -49,7 +55,7 @@ const Header = () => {
             </div>
             {plusIsOn &&
                 <div style={{position:'absolute', right:'100px', top:'100px'}}>
-                    <ListButton texts={texts} urls_imgs={urls_imgs} onComponentsClicks={[handleAddStudentClick, ()=>{}, handleSchoolSubjectsClick, handleCreateGroupClick, ()=>{}]}/>
+                    <ListButton texts={texts} urls_imgs={urls_imgs} onComponentsClicks={[handleAddStudentClick, handleAddProfClick, handleSchoolSubjectsClick, handleCreateGroupClick, handleCreateSessionClick]}/>
                 </div>
             }
         </div>
